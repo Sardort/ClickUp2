@@ -41,6 +41,7 @@ public class WorkspaceService {
             workspace.setName(workspaceDto.getName());
             workspace.setColor(workspaceDto.getColor());
             workspace.setInitial_letter(workspaceDto.getInitial_letter());
+
             workspace.setAvatar_id(workspaceDto.getAvatar_id());
             workspaceRepository.save(workspace);
             return new Result(true, "O'zgartirildi");
