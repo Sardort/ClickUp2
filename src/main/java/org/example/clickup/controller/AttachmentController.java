@@ -5,9 +5,7 @@ import org.example.clickup.model.Attachment;
 import org.example.clickup.model.Result;
 import org.example.clickup.service.AttachmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,28 @@ public class AttachmentController {
     public List<Attachment> getAll(){
         List<Attachment> list = attachmentService.getAll();
         return list;
+    }
+
+    @GetMapping("/{id}")
+    public Attachment getById(@PathVariable Integer id){
+        Attachment attachment = attachmentService.getById(id);
+        return attachment;
+    }
+
+    @PostMapping
+    public Result create(@RequestBody AttachmentDto attachmentDto){
+        Result result = attachmentService.create(attachmentDto);
+        return result;
+    }
+
+    @PutMapping("/{id}")
+    public Result update(@PathVariable Integer id, @RequestBody AttachmentDto attachmentDto){
+        Result result = attachmentService.update(attachmentDto);
+        return result;
+    }
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id){
+        Result result = attachmentService.delete(id);
+        return result;
     }
 }
