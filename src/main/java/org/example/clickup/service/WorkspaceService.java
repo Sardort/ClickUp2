@@ -49,5 +49,8 @@ public class WorkspaceService {
         return new Result(false, "Not found");
     }
 
-
+    public Result delete(Integer id){
+        workspaceRepository.deleteById(id);
+        return new Result(true, "O'chirildi");
+    }
 }

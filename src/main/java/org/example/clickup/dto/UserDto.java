@@ -1,6 +1,8 @@
 package org.example.clickup.dto;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToOne;
+
 public class UserDto {
     @Column(nullable = false)
     private String fullname;
@@ -12,7 +14,7 @@ public class UserDto {
     private String color;
     @Column(nullable = false)
     private String initial_letter;
-    @Column(nullable = false)
+    @OneToOne
     private Integer avater_id;
 
     public UserDto(String fullname, String email, String password, String color, String initial_letter, Integer avater_id) {
