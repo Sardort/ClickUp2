@@ -30,7 +30,7 @@ public class IconService {
         Icon icon = new Icon();
         icon.setColor(iconDto.getColor());
         icon.setInitial_letter(iconDto.getInitial_letter());
-        icon.setIcon(icon.getIcon());
+        icon.setIcon(iconDto.getIcon());
         iconRepository.save(icon);
         return new Result(true, "Saqlandi");
     }

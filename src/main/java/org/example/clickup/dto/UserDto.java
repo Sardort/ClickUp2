@@ -14,16 +14,13 @@ public class UserDto {
     private String color;
     @Column(nullable = false)
     private String initial_letter;
-    @OneToOne
-    private Integer avater_id;
 
-    public UserDto(String fullname, String email, String password, String color, String initial_letter, Integer avater_id) {
+    public UserDto(String fullname, String email, String password, String color, String initial_letter) {
         this.fullname = fullname;
         this.email = email;
         this.password = password;
         this.color = color;
         this.initial_letter = initial_letter;
-        this.avater_id = avater_id;
     }
 
     public UserDto() {
@@ -69,14 +66,6 @@ public class UserDto {
         this.initial_letter = initial_letter;
     }
 
-    public Integer getAvater_id() {
-        return avater_id;
-    }
-
-    public void setAvater_id(Integer avater_id) {
-        this.avater_id = avater_id;
-    }
-
     @Override
     public String toString() {
         return "UserDto{" +
@@ -85,7 +74,6 @@ public class UserDto {
                 ", password='" + password + '\'' +
                 ", color='" + color + '\'' +
                 ", initial_letter='" + initial_letter + '\'' +
-                ", avater_id=" + avater_id +
                 '}';
     }
 }

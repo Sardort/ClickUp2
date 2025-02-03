@@ -33,7 +33,6 @@ public class UserService {
         user.setPassword(userDto.getPassword());
         user.setColor(userDto.getColor());
         user.setInitial_letter(userDto.getInitial_letter());
-        user.setAvater_id(userDto.getAvater_id());
         userRepository.save(user);
         return new Result(true, "Saqlandi");
     }

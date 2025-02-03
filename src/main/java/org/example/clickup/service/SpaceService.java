@@ -30,7 +30,7 @@ public class SpaceService {
         Space space = new Space();
         space.setName(spaceDto.getName());
         space.setColor(spaceDto.getColor());
-        space.setInitial_letter(space.getInitial_letter());
+        space.setInitial_letter(spaceDto.getInitial_letter());
         space.setAccess_type(spaceDto.getAccess_type());
         spaceRepository.save(space);
         return new Result(true, "Saqlandi");

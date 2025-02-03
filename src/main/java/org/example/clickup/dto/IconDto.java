@@ -10,9 +10,9 @@ public class IconDto {
     @Column(nullable = false)
     private String icon;
 
-    public IconDto(String color, String initial_letter, String icon) {
+    public IconDto(String color, String initialLetter, String icon) {
         this.color = color;
-        this.initial_letter = initial_letter;
+        this.initial_letter = initialLetter;
         this.icon = icon;
     }
 

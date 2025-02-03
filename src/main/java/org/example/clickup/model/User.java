@@ -17,10 +17,10 @@ public class User {
     private String color;
     @Column(nullable = false)
     private String initial_letter;
-    @Column(nullable = false)
-    private Integer avater_id;
+    @OneToOne
+    private Attachment avater_id;
 
-    public User(Integer id, String fullname, String email, String password, String color, String initial_letter, Integer avater_id) {
+    public User(Integer id, String fullname, String email, String password, String color, String initial_letter, Attachment avater_id) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
@@ -81,11 +81,11 @@ public class User {
         this.initial_letter = initial_letter;
     }
 
-    public Integer getAvater_id() {
+    public Attachment getAvater_id() {
         return avater_id;
     }
 
-    public void setAvater_id(Integer avater_id) {
+    public void setAvater_id(Attachment avater_id) {
         this.avater_id = avater_id;
     }
 

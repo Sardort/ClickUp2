@@ -29,7 +29,7 @@ public class AttachmentService {
     public Result create(AttachmentDto attachmentDto){
         Attachment attachment = new Attachment();
         attachment.setName(attachmentDto.getName());
-        attachment.setOriginal_name(attachment.getOriginal_name());
+        attachment.setOriginal_name(attachmentDto.getOriginal_name());
         attachment.setSize(attachmentDto.getSize());
         attachment.setContent_type(attachmentDto.getContent_type());
         attachmentRepository.save(attachment);
