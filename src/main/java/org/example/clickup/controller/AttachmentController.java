@@ -35,7 +35,7 @@ public class AttachmentController {
 
     @PutMapping("/{id}")
     public Result update(@PathVariable Integer id, @RequestBody AttachmentDto attachmentDto){
-        Result result = attachmentService.update(attachmentDto);
+        Result result = attachmentService.update(id, attachmentDto);
         return result;
     }
     @DeleteMapping("/{id}")

@@ -37,7 +37,7 @@ public class AttachmentService {
     }
 
     //update
-    public Result update(AttachmentDto attachmentDto){
+    public Result update(Integer id, AttachmentDto attachmentDto){
         Optional<Attachment> attachmentOptional = attachmentRepository.findById(id);
         if (attachmentOptional.isPresent()){
             Attachment attachment = attachmentOptional.get();
