@@ -16,8 +16,6 @@ import java.util.List;
 public class Workspace_userController {
     @Autowired
     Workspace_userService workspace_userService;
-    @Autowired
-    private Workspace_userRepository workspace_userRepository;
 
     @GetMapping
     public List<Workspace_user> getAll(){
