@@ -1,6 +1,7 @@
 package org.example.clickup.model;
 
 import jakarta.persistence.*;
+import org.example.clickup.model.entity.PermissionRole;
 
 @Entity
 public class Workspace_permission {
@@ -11,6 +12,9 @@ public class Workspace_permission {
     private Workspace_role workspace_role;
     @Column(nullable = false)
     private String permission;
+    @Enumerated(EnumType.STRING)
+    private PermissionRole permissionRole;
+
 
     public Workspace_permission(Integer id, Workspace_role workspace_role, String permission) {
         this.id = id;

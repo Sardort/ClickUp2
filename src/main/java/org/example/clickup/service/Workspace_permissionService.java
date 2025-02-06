@@ -3,6 +3,7 @@ package org.example.clickup.service;
 import org.example.clickup.dto.Workspace_permissionDto;
 import org.example.clickup.model.Result;
 import org.example.clickup.model.Workspace_permission;
+import org.example.clickup.model.entity.PermissionRole;
 import org.example.clickup.repository.Workspace_permissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,9 @@ public class Workspace_permissionService {
 
     public Result create(Workspace_permissionDto workspace_permissionDto){
         Workspace_permission workspacePermission = new Workspace_permission();
-        workspacePermission.setPermission(workspace_permissionDto.getPermission());
+        workspacePermission.setPermission(String.valueOf(PermissionRole.ACTIVE));
+
+
         workspace_permissionRepository.save(workspacePermission);
         return new Result(true, "Saqlandi");
     }
