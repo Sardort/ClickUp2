@@ -31,7 +31,7 @@ public class StatusService {
         Status status = new Status();
         status.setName(statusDto.getName());
         status.setColor(statusDto.getColor());
-        status.setTypeRole(TypeRole.OPEN);
+        status.setType(String.valueOf(TypeRole.OPEN));
         statusRepository.save(status);
         return new Result(true, "Saqlandi");
     }
@@ -43,7 +43,7 @@ public class StatusService {
             Status status = statusOptional.get();
             status.setName(statusDto.getName());
             status.setColor(statusDto.getColor());
-            status.setTypeRole(TypeRole.OPEN);
+            status.setType(String.valueOf(TypeRole.OPEN));
             statusRepository.save(status);
             return new Result(true,"O'zgartirildi");
         }

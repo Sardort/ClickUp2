@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import org.example.clickup.model.entity.Task_permissionRole;
 
 @Entity
-public class Project_user {
+public class Category_user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false)
+    private String name;
     @OneToOne
-    private Project project_id;
+    private Category category_id;
     @OneToOne
     private User user_id;
     @Column(nullable = false)
@@ -17,15 +19,16 @@ public class Project_user {
     @Enumerated(EnumType.STRING)
     private Task_permissionRole task_permissionRole;
 
-    public Project_user(Integer id, Project project_id, User user_id, String task_permission, Task_permissionRole task_permissionRole) {
+    public Category_user(Integer id, String name, Category category_id, User user_id, String task_permission, Task_permissionRole task_permissionRole) {
         this.id = id;
-        this.project_id = project_id;
+        this.name = name;
+        this.category_id = category_id;
         this.user_id = user_id;
         this.task_permission = task_permission;
         this.task_permissionRole = task_permissionRole;
     }
 
-    public Project_user() {
+    public Category_user() {
     }
 
     public Integer getId() {
@@ -36,12 +39,20 @@ public class Project_user {
         this.id = id;
     }
 
-    public Project getProject_id() {
-        return project_id;
+    public String getName() {
+        return name;
     }
 
-    public void setProject_id(Project project_id) {
-        this.project_id = project_id;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Category getCategory_id() {
+        return category_id;
+    }
+
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
 
     public User getUser_id() {
@@ -70,9 +81,10 @@ public class Project_user {
 
     @Override
     public String toString() {
-        return "Project_user{" +
+        return "Category_user{" +
                 "id=" + id +
-                ", project_id=" + project_id +
+                ", name='" + name + '\'' +
+                ", category_id=" + category_id +
                 ", user_id=" + user_id +
                 ", task_permission='" + task_permission + '\'' +
                 ", task_permissionRole=" + task_permissionRole +

@@ -9,12 +9,15 @@ public class StatusDto {
     private String name;
     @Column(nullable = false)
     private String color;
+    @Column(nullable = false)
+    private String type;
     @Enumerated
     private TypeRole typeRole;
 
-    public StatusDto(String name, String color, TypeRole typeRole) {
+    public StatusDto(String name, String color, String type, TypeRole typeRole) {
         this.name = name;
         this.color = color;
+        this.type = type;
         this.typeRole = typeRole;
     }
 
@@ -37,6 +40,14 @@ public class StatusDto {
         this.color = color;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public TypeRole getTypeRole() {
         return typeRole;
     }
@@ -50,6 +61,7 @@ public class StatusDto {
         return "StatusDto{" +
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
+                ", type='" + type + '\'' +
                 ", typeRole=" + typeRole +
                 '}';
     }

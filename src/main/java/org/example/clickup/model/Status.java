@@ -18,16 +18,19 @@ public class Status {
     private Category category_id;
     @Column(nullable = false)
     private String color;
-    @Enumerated
+    @Column(nullable = false)
+    private String type;
+    @Enumerated(EnumType.STRING)
     private TypeRole typeRole;
 
-    public Status(Integer id, String name, Space space_id, Project project_id, Category category_id, String color, TypeRole typeRole) {
+    public Status(Integer id, String name, Space space_id, Project project_id, Category category_id, String color, String type, TypeRole typeRole) {
         this.id = id;
         this.name = name;
         this.space_id = space_id;
         this.project_id = project_id;
         this.category_id = category_id;
         this.color = color;
+        this.type = type;
         this.typeRole = typeRole;
     }
 
@@ -82,6 +85,14 @@ public class Status {
         this.color = color;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public TypeRole getTypeRole() {
         return typeRole;
     }
@@ -99,6 +110,7 @@ public class Status {
                 ", project_id=" + project_id +
                 ", category_id=" + category_id +
                 ", color='" + color + '\'' +
+                ", type='" + type + '\'' +
                 ", typeRole=" + typeRole +
                 '}';
     }
