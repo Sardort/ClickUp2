@@ -37,7 +37,7 @@ public class Workspace_permissionService {
         Optional<Workspace_permission> workspace_permissionOptional = workspace_permissionRepository.findById(id);
         if (workspace_permissionOptional.isPresent()){
             Workspace_permission workspace_permission = workspace_permissionOptional.get();
-            workspace_permission.setPermission(workspace_permissionDto.getPermission());
+            workspace_permission.setPermission(String.valueOf(PermissionRole.ACTIVE));
             workspace_permissionRepository.save(workspace_permission);
             return new Result(true,"O'zgartirildi");
         }

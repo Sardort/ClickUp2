@@ -3,6 +3,7 @@ package org.example.clickup.service;
 import org.example.clickup.dto.Project_userDto;
 import org.example.clickup.model.Project_user;
 import org.example.clickup.model.Result;
+import org.example.clickup.model.entity.Task_permissionRole;
 import org.example.clickup.repository.Project_userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class Project_userService {
     //create
     public Result create(Project_userDto project_userDto){
         Project_user projectUser = new Project_user();
-        projectUser.setTask_permission(project_userDto.getTask_permission());
+        projectUser.setTask_permission(String.valueOf(Task_permissionRole.ACTIVE));
         project_userRepository.save(projectUser);
         return new Result(true, "Saqlandi");
     }
@@ -38,7 +39,7 @@ public class Project_userService {
         Optional<Project_user> project_userOptional = project_userRepository.findById(id);
         if (project_userOptional.isPresent()){
             Project_user projectUser = project_userOptional.get();
-            projectUser.setTask_permission(project_userDto.getTask_permission());
+            projectUser.setTask_permission(String.valueOf(Task_permissionRole.ACTIVE));
             project_userRepository.save(projectUser);
             return new Result(true,"O'zgartirildi");
         }

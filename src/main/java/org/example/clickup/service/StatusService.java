@@ -3,6 +3,7 @@ package org.example.clickup.service;
 import org.example.clickup.dto.StatusDto;
 import org.example.clickup.model.Result;
 import org.example.clickup.model.Status;
+import org.example.clickup.model.entity.TypeRole;
 import org.example.clickup.repository.StatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class StatusService {
         Status status = new Status();
         status.setName(statusDto.getName());
         status.setColor(statusDto.getColor());
-        status.setTypeRole(statusDto.getTypeRole());
+        status.setTypeRole(TypeRole.OPEN);
         statusRepository.save(status);
         return new Result(true, "Saqlandi");
     }
@@ -42,7 +43,7 @@ public class StatusService {
             Status status = statusOptional.get();
             status.setName(statusDto.getName());
             status.setColor(statusDto.getColor());
-            status.setTypeRole(statusDto.getTypeRole());
+            status.setTypeRole(TypeRole.OPEN);
             statusRepository.save(status);
             return new Result(true,"O'zgartirildi");
         }
