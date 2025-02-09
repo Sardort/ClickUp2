@@ -1,9 +1,10 @@
 package org.example.clickup.model;
 
 import jakarta.persistence.*;
+import org.example.clickup.model.entity.TypeRole;
 
 @Entity
-public class Project {
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -11,23 +12,26 @@ public class Project {
     private String name;
     @OneToOne
     private Space space_id;
-    @Column(nullable = false)
-    private String access_type;
-    @Column(nullable = false)
-    private String archived;
+    @OneToOne
+    private Project project_id;
+    @OneToOne
+    private Category category_id;
     @Column(nullable = false)
     private String color;
+    @Enumerated
+    private TypeRole typeRole;
 
-    public Project(Integer id, String name, Space space_id, String access_type, String archived, String color) {
+    public Status(Integer id, String name, Space space_id, Project project_id, Category category_id, String color, TypeRole typeRole) {
         this.id = id;
         this.name = name;
         this.space_id = space_id;
-        this.access_type = access_type;
-        this.archived = archived;
+        this.project_id = project_id;
+        this.category_id = category_id;
         this.color = color;
+        this.typeRole = typeRole;
     }
 
-    public Project() {
+    public Status() {
     }
 
     public Integer getId() {
@@ -54,20 +58,20 @@ public class Project {
         this.space_id = space_id;
     }
 
-    public String getAccess_type() {
-        return access_type;
+    public Project getProject_id() {
+        return project_id;
     }
 
-    public void setAccess_type(String access_type) {
-        this.access_type = access_type;
+    public void setProject_id(Project project_id) {
+        this.project_id = project_id;
     }
 
-    public String getArchived() {
-        return archived;
+    public Category getCategory_id() {
+        return category_id;
     }
 
-    public void setArchived(String archived) {
-        this.archived = archived;
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
 
     public String getColor() {
@@ -78,15 +82,24 @@ public class Project {
         this.color = color;
     }
 
+    public TypeRole getTypeRole() {
+        return typeRole;
+    }
+
+    public void setTypeRole(TypeRole typeRole) {
+        this.typeRole = typeRole;
+    }
+
     @Override
     public String toString() {
-        return "Project{" +
+        return "Status{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", space_id=" + space_id +
-                ", access_type='" + access_type + '\'' +
-                ", archived='" + archived + '\'' +
+                ", project_id=" + project_id +
+                ", category_id=" + category_id +
                 ", color='" + color + '\'' +
+                ", typeRole=" + typeRole +
                 '}';
     }
 }

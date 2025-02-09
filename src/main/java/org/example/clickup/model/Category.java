@@ -3,14 +3,14 @@ package org.example.clickup.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Project {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
     private String name;
     @OneToOne
-    private Space space_id;
+    private Project project_id;
     @Column(nullable = false)
     private String access_type;
     @Column(nullable = false)
@@ -18,16 +18,16 @@ public class Project {
     @Column(nullable = false)
     private String color;
 
-    public Project(Integer id, String name, Space space_id, String access_type, String archived, String color) {
+    public Category(Integer id, String name, Project project_id, String access_type, String archived, String color) {
         this.id = id;
         this.name = name;
-        this.space_id = space_id;
+        this.project_id = project_id;
         this.access_type = access_type;
         this.archived = archived;
         this.color = color;
     }
 
-    public Project() {
+    public Category() {
     }
 
     public Integer getId() {
@@ -46,12 +46,12 @@ public class Project {
         this.name = name;
     }
 
-    public Space getSpace_id() {
-        return space_id;
+    public Project getProject_id() {
+        return project_id;
     }
 
-    public void setSpace_id(Space space_id) {
-        this.space_id = space_id;
+    public void setProject_id(Project project_id) {
+        this.project_id = project_id;
     }
 
     public String getAccess_type() {
@@ -80,10 +80,10 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
+        return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", space_id=" + space_id +
+                ", project_id=" + project_id +
                 ", access_type='" + access_type + '\'' +
                 ", archived='" + archived + '\'' +
                 ", color='" + color + '\'' +
