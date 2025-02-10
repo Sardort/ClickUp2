@@ -12,12 +12,12 @@ public class Space_view {
     @OneToMany
     private List<Space> space_id;
     @OneToMany
-    private View view_id;
+    private List<View> view_id;
 
     public Space_view(Integer id, List<Space> space_id, View view_id) {
         this.id = id;
         this.space_id = space_id;
-        this.view_id = view_id;
+        this.view_id = (List<View>) view_id;
     }
 
     public Space_view() {
@@ -40,11 +40,11 @@ public class Space_view {
     }
 
     public View getView_id() {
-        return view_id;
+        return (View) view_id;
     }
 
     public void setView_id(View view_id) {
-        this.view_id = view_id;
+        this.view_id = (List<View>) view_id;
     }
 
     @Override
